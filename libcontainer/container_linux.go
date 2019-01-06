@@ -25,7 +25,7 @@ import (
 	"github.com/opencontainers/runc/libcontainer/intelrdt"
 	"github.com/opencontainers/runc/libcontainer/system"
 	"github.com/opencontainers/runc/libcontainer/utils"
-	"github.com/opencontainers/runtime-spec/specs-go"
+	specs "github.com/opencontainers/runtime-spec/specs-go"
 
 	"github.com/golang/protobuf/proto"
 	"github.com/sirupsen/logrus"
@@ -1182,6 +1182,7 @@ func (c *linuxContainer) Restore(process *Process, criuOpts *CriuOpts) error {
 			ShellJob:        proto.Bool(criuOpts.ShellJob),
 			ExtUnixSk:       proto.Bool(criuOpts.ExternalUnixConnections),
 			TcpEstablished:  proto.Bool(criuOpts.TcpEstablished),
+			TcpClose:        proto.Bool(criuOpts.TcpClose),
 			FileLocks:       proto.Bool(criuOpts.FileLocks),
 			EmptyNs:         proto.Uint32(criuOpts.EmptyNs),
 			OrphanPtsMaster: proto.Bool(true),

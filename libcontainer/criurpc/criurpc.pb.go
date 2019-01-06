@@ -393,6 +393,8 @@ type CriuOpts struct {
 	LazyPages            *bool               `protobuf:"varint,48,opt,name=lazy_pages,json=lazyPages" json:"lazy_pages,omitempty"`
 	StatusFd             *int32              `protobuf:"varint,49,opt,name=status_fd,json=statusFd" json:"status_fd,omitempty"`
 	OrphanPtsMaster      *bool               `protobuf:"varint,50,opt,name=orphan_pts_master,json=orphanPtsMaster" json:"orphan_pts_master,omitempty"`
+	ConfigFile           *string             `protobuf:"bytes,51,opt,name=config_file,json=configFile" json:"config_file,omitempty"`
+	TcpClose             *bool               `protobuf:"varint,52,opt,name=tcp_close,json=tcpClose" json:"tcp_close,omitempty"`
 	XXX_unrecognized     []byte              `json:"-"`
 }
 
@@ -744,6 +746,20 @@ func (m *CriuOpts) GetStatusFd() int32 {
 func (m *CriuOpts) GetOrphanPtsMaster() bool {
 	if m != nil && m.OrphanPtsMaster != nil {
 		return *m.OrphanPtsMaster
+	}
+	return false
+}
+
+func (m *CriuOpts) GetConfigFile() string {
+	if m != nil && m.ConfigFile != nil {
+		return *m.ConfigFile
+	}
+	return ""
+}
+
+func (m *CriuOpts) GetTcpClose() bool {
+	if m != nil && m.TcpClose != nil {
+		return *m.TcpClose
 	}
 	return false
 }

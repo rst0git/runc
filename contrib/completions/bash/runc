@@ -371,7 +371,7 @@ _runc_events() {
 _runc_list() {
 	local boolean_options="
 	   --help
-	   --quiet 
+	   --quiet
 	   -q
 	"
 
@@ -598,6 +598,7 @@ _runc_restore() {
 	local boolean_options="
 	   --help
 	   --tcp-established
+	   --tcp-close
 	   --ext-unix-sk
 	   --shell-job
 	   --file-locks

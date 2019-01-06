@@ -41,6 +41,10 @@ using the runc checkpoint command.`,
 			Usage: "allow open tcp connections",
 		},
 		cli.BoolFlag{
+			Name:  "tcp-close",
+			Usage: "restore connected TCP sockets in closed state",
+		},
+		cli.BoolFlag{
 			Name:  "ext-unix-sk",
 			Usage: "allow external unix sockets",
 		},
@@ -131,6 +135,7 @@ func criuOptions(context *cli.Context) *libcontainer.CriuOpts {
 		ParentImage:             context.String("parent-path"),
 		LeaveRunning:            context.Bool("leave-running"),
 		TcpEstablished:          context.Bool("tcp-established"),
+		TcpClose:                context.Bool("tcp-close"),
 		ExternalUnixConnections: context.Bool("ext-unix-sk"),
 		ShellJob:                context.Bool("shell-job"),
 		FileLocks:               context.Bool("file-locks"),

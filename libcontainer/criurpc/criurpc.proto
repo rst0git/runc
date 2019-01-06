@@ -111,6 +111,8 @@ message criu_opts {
 	optional bool			lazy_pages		= 48;
 	optional int32			status_fd		= 49;
 	optional bool			orphan_pts_master	= 50;
+	optional string			config_file		= 51;
+	optional bool			tcp_close		= 52;
 }
 
 message criu_dump_resp {
@@ -142,6 +144,9 @@ enum criu_req_type {
 	FEATURE_CHECK	= 9;
 
 	VERSION		= 10;
+
+	WAIT_PID	= 11;
+	PAGE_SERVER_CHLD = 12;
 }
 
 /*
@@ -176,6 +181,9 @@ message criu_req {
 	 * via RPC.
 	 */
 	optional criu_features		features	= 5;
+
+	/* 'pid' is used for WAIT_PID */
+	optional uint32			pid		= 6;
 }
 
 /*
@@ -196,6 +204,8 @@ message criu_resp {
 	optional criu_features		features	= 8;
 	optional string			cr_errmsg	= 9;
 	optional criu_version		version		= 10;
+
+	optional int32			status		= 11;
 }
 
 /* Answer for criu_req_type.VERSION requests */

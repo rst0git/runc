@@ -15,6 +15,7 @@ using the runc checkpoint command.
    --image-path value           path to criu image files for restoring
    --work-path value            path for saving work files and logs
    --tcp-established            allow open tcp connections
+   --tcp-close                  restore connected TCP sockets in closed state
    --ext-unix-sk                allow external unix sockets
    --shell-job                  allow shell jobs
    --file-locks                 handle file locks, for safety
