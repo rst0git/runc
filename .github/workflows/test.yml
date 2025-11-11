@@ -91,7 +91,7 @@ jobs:
           libcap-dev libnet1-dev libnl-3-dev uuid-dev \
           libprotobuf-c-dev libprotobuf-dev protobuf-c-compiler protobuf-compiler
         git clone --depth 1 --branch ${{ matrix.criu }} --single-branch \
-          https://github.com/checkpoint-restore/criu.git ~/criu
+          https://github.com/rst0git/criu.git ~/criu
         (cd ~/criu && sudo make -j $(nproc) install-criu)
         rm -rf ~/criu
         criu --version
